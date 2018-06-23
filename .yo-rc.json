@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Richard KOEHL",
+      "authorEmail": "koehl.richard@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}
