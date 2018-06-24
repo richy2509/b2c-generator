@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/generator-genesis-cms.iml" filepath="$PROJECT_DIR$/.idea/generator-genesis-cms.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../catalog/test/test-generator-genesis-cms/test-generator-genesis-cms.iml" filepath="$PROJECT_DIR$/../../catalog/test/test-generator-genesis-cms/test-generator-genesis-cms.iml" />
-    </modules>
-  </component>
-</project>
