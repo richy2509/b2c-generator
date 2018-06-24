@@ -29,34 +29,15 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    this.fs.copyTpl(
-      this.templatePath('index.ftl'),
-      this.destinationPath(`generated/${this.props.pageName}/${this.props.pageName}.ftl`),
-      {
-        pageName: this.props.pageName
-      }
-    );
-    this.fs.copyTpl(
-      this.templatePath('index.scss'),
-      this.destinationPath(`generated/${this.props.pageName}/${this.props.pageName}.scss`),
-      {
-        pageName: this.props.pageName
-      }
-    );
-    this.fs.copyTpl(
-      this.templatePath('index.md'),
-      this.destinationPath(`generated/${this.props.pageName}/${this.props.pageName}.md`),
-      {
-        pageName: this.props.pageName
-      }
-    );
-    this.fs.copyTpl(
-      this.templatePath('index.ts'),
-      this.destinationPath(`generated/${this.props.pageName}/${this.props.pageName}.ts`),
-      {
-        pageName: this.props.pageName
-      }
-    );
+    this._extensionHandled().forEach(extension => {
+      this.fs.copyTpl(
+        this.templatePath(`index${extension}`),
+        this.destinationPath(`generated/${this.props.pageName}/${this.props.pageName}${extension}`),
+        {
+          pageName: this.props.pageName
+        }
+      );
+    });
   }
 
   install() {}

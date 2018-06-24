@@ -4,6 +4,24 @@ const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
 
 const pageName = 'landing';
+const _fileTypes = [
+  {
+    type: 'freermarker',
+    extension: '.ftl'
+  },
+  {
+    type: 'Style',
+    extension: '.scss'
+  },
+  {
+    type: 'Markdown',
+    extension: '.md'
+  },
+  {
+    type: 'Scripts',
+    extension: '.ts'
+  }
+];
 
 describe('generator-genesis-cms:pages', () => {
   beforeAll(() => {
@@ -12,20 +30,10 @@ describe('generator-genesis-cms:pages', () => {
       .withPrompts({ pageName: pageName });
   });
 
-  it('creates freemarker file', () => {
-    assert.file([`generated/${pageName}/${pageName}.ftl`]);
-    assert.fileContent(`generated/${pageName}/${pageName}.ftl`, pageName);
-  });
-  it('creates scss file', () => {
-    assert.file([`generated/${pageName}/${pageName}.scss`]);
-    assert.fileContent(`generated/${pageName}/${pageName}.scss`, pageName);
-  });
-  it('creates markdwon file', () => {
-    assert.file([`generated/${pageName}/${pageName}.md`]);
-    assert.fileContent(`generated/${pageName}/${pageName}.md`, pageName);
-  });
-  it('creates typescript file', () => {
-    assert.file([`generated/${pageName}/${pageName}.ts`]);
-    assert.fileContent(`generated/${pageName}/${pageName}.ts`, pageName);
-  });
+  _fileTypes.forEach(fileType => {
+    it('creates freemarker file', () => {
+      assert.file([`generated/${pageName}/${pageName}${fileType.extension}`]);
+      assert.fileContent(`generated/${pageName}/${pageName}${fileType.extension}`, pageName);
+    });
+  })
 });
